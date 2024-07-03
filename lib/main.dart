@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notify/screens/editnotepage.dart';
 import 'package:notify/screens/homepage.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
-      home: Homepage(),
+      home: EditNotePage(),
     );
   }
 }
