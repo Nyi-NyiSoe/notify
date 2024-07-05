@@ -5,21 +5,31 @@ class AllNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            body: Container(
-                child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
-                    itemBuilder: (context,index){
-                      return Card(
-                        child: Column(
-                          children: [
-                            Text('Note title'),
-                            Text('Note content')
-                          ],
-                        ),
-                      );
-                    }))));
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          expandedHeight: MediaQuery.of(context).size.height * 0.25,
+          centerTitle: true,
+          pinned: true,
+          flexibleSpace: FlexibleSpaceBar(
+            centerTitle: true,
+            title: const Text('N O T I F Y'),
+            background: Container(
+              color: Colors.greenAccent,
+            ),
+          ),
+        ),
+        SliverGrid.builder(
+            itemCount: 10,
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.all(10),
+                color: Colors.greenAccent,
+              );
+            })
+      ],
+    );
   }
 }

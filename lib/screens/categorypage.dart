@@ -5,11 +5,6 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: Container(
-        child: Text('Category page'),
-      ),
-    ));
+    return SafeArea(child: Scaffold(body: Container(child: Text('Category'),),));
   }
 }
