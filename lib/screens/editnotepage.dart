@@ -1,12 +1,26 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 
-class EditNotePage extends StatelessWidget {
-  const EditNotePage({super.key});
+class EditNotePage extends StatefulWidget {
+  EditNotePage({super.key});
+
+  @override
+  State<EditNotePage> createState() => _EditNotePageState();
+}
+
+class _EditNotePageState extends State<EditNotePage> {
+  late QuillController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = QuillController.basic();
+  }
 
   @override
   Widget build(BuildContext context) {
-    QuillController _controller = QuillController.basic();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -14,7 +28,9 @@ class EditNotePage extends StatelessWidget {
           title: const Text('Edit Note'),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                
+              },
               icon: const Icon(Icons.save),
             )
           ],
@@ -25,20 +41,15 @@ class EditNotePage extends StatelessWidget {
                 configurations: QuillSimpleToolbarConfigurations(
               controller: _controller,
               showBackgroundColorButton: false,
-              showBoldButton: true,
               showAlignmentButtons: false,
               showColorButton: false,
-              showItalicButton: true,
-              showUnderLineButton: true,
-              showStrikeThrough: true,
-              showCenterAlignment: true,
-              showLeftAlignment: true,
               showClearFormat: false,
             )),
             Expanded(
-                child: QuillEditor.basic(
-                    configurations:
-                        QuillEditorConfigurations(controller: _controller))),
+              child: QuillEditor.basic(
+                  configurations: QuillEditorConfigurations(
+                      controller: _controller, enableScribble: true)),
+            ),
           ],
         ),
       ),
