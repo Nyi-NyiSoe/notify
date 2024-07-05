@@ -71,18 +71,7 @@ class _HomepageState extends State<Homepage> {
           ),
           body: CustomScrollView(
             slivers: [
-              SliverAppBar(
-                expandedHeight: MediaQuery.of(context).size.height * 0.25,
-                centerTitle: true,
-                pinned: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  title: const Text('N O T I F Y'),
-                  background: Container(
-                    color: Colors.greenAccent,
-                  ),
-                ),
-              ),
+             
               SliverFillRemaining(
                 child: _pages.elementAt(selectedIndex),
               )
